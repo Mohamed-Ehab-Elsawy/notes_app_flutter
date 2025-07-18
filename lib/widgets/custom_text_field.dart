@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
-  final String hintText;
+  final String? initialValue, hintText;
   final Function(String)? onChanged;
   final FormFieldValidator<String>? validator;
   final TextInputType keyboardType;
@@ -9,7 +9,8 @@ class CustomTextField extends StatelessWidget {
 
   const CustomTextField({
     super.key,
-    required this.hintText,
+    this.initialValue,
+    this.hintText,
     required this.validator,
     required this.keyboardType,
     this.onChanged,
@@ -18,6 +19,9 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => TextFormField(
+    validator: validator,
+    initialValue: initialValue,
+    onChanged: onChanged,
     decoration: InputDecoration(
       hintText: hintText,
       hintStyle: TextStyle(color: Colors.white),
@@ -32,10 +36,8 @@ class CustomTextField extends StatelessWidget {
     cursorColor: Colors.white,
     style: const TextStyle(color: Colors.white),
     keyboardType: keyboardType,
-    validator: validator,
     maxLines: maxLines,
     textAlignVertical: TextAlignVertical.center,
-    onChanged: onChanged ?? (value) {},
   );
 
   OutlineInputBorder _buildBorder([color]) => OutlineInputBorder(

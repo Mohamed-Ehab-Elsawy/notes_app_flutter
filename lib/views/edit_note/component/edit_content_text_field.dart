@@ -1,25 +1,23 @@
 import 'package:flutter/material.dart';
 
-import 'custom_text_field.dart';
+import '../../../widgets/custom_text_field.dart';
 
-class NoteContentTextField extends StatelessWidget {
-  final String? hintText, initialValue;
+class EditContentTextField extends StatelessWidget {
+  final String? initialValue;
   final Function(String) onChange;
 
-  const NoteContentTextField({
+  const EditContentTextField({
     super.key,
     required this.onChange,
-    this.hintText,
     this.initialValue,
   });
 
   @override
   Widget build(BuildContext context) => CustomTextField(
-    maxLines: 4,
-    hintText: hintText,
     initialValue: initialValue,
     keyboardType: TextInputType.multiline,
     onChanged: onChange,
+    maxLines: 1000,
     validator: (value) {
       if (value == null || value.isEmpty)
         return 'Enter content';

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/widgets/search_text_field.dart';
+import 'package:notes_app/views/home/components/search_text_field.dart';
 
 class AnimatedSearchField extends StatelessWidget {
   final bool isVisible;
