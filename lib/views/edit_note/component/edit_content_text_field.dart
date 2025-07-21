@@ -17,7 +17,7 @@ class EditContentTextField extends StatelessWidget {
     initialValue: initialValue,
     keyboardType: TextInputType.multiline,
     onChanged: onChange,
-    maxLines: 1000,
+    maxLines: 100,
     validator: (value) {
       if (value == null || value.isEmpty) {
         return 'Enter content';

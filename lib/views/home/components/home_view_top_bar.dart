@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app/cubits/note_search/notes_search_cubit.dart';
 
-import '../../../cubits/home_view/home_view_cubit.dart';
 import '../../../cubits/notes/notes_cubit.dart';
 import '../../../widgets/custom_icon_button.dart';
 
 class HomeViewTopBar extends StatelessWidget implements PreferredSizeWidget {
-  final SearchState state;
+  final NotesSearchState state;
 
   const HomeViewTopBar({super.key, required this.state});
 
@@ -19,10 +19,13 @@ class HomeViewTopBar extends StatelessWidget implements PreferredSizeWidget {
     title: const Text('Notes', style: TextStyle(fontSize: 20)),
     actions: [
       CustomIconButton(
-        icon: state is ShowSearch ? Icons.close_rounded : Icons.search_rounded,
+        icon:
+            state is NotesSearchShow
+                ? Icons.close_rounded
+                : Icons.search_rounded,
         onPressed: () {
-          final cubit = BlocProvider.of<SearchCubit>(context);
-          if (state is ShowSearch) {
+          final cubit = BlocProvider.of<NotesSearchCubit>(context);
+          if (state is NotesSearchShow) {
             cubit.hideSearch();
             BlocProvider.of<NotesCubit>(context).fetchNotes();
           } else {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:notes_app/cubits/home_view/home_view_cubit.dart';
+import 'package:notes_app/cubits/note_search/notes_search_cubit.dart';
 import 'package:notes_app/views/home/components/add_note_bottom_sheet.dart';
 
 import '../../widgets/circular_fab.dart';
@@ -14,7 +14,7 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) =>
-      BlocBuilder<SearchCubit, SearchState>(
+      BlocBuilder<NotesSearchCubit, NotesSearchState>(
         builder:
             (context, state) => Scaffold(
               appBar: HomeViewTopBar(state: state),

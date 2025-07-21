@@ -24,10 +24,8 @@ class NotesCubit extends Cubit<NotesState> {
 
   deleteNote(Note note) async {
     try {
-      final box = Hive.box<Note>(kNotesBox);
-      await box.delete(note.key);
-      List<Note> notes = box.values.toList();
-      emit(NotesSuccess(notes: notes));
+      await note.delete();
+      fetchNotes();
     } catch (e) {
       emit(NotesFailer(error: e.toString()));
     }

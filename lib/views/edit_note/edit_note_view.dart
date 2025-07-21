@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app/cubits/notes/notes_cubit.dart' show NotesCubit;
 
 import '../../data/models/note.dart';
 import 'component/edit_note_view_body.dart';
@@ -25,6 +27,8 @@ class _EditNoteViewState extends State<EditNoteView> {
       appBar: EditViewTopBar(
         onCheckPressed: () {
           if (_formKey.currentState!.validate()) {
+            _editNote(note);
+            BlocProvider.of<NotesCubit>(context).fetchNotes();
             Navigator.pop(context);
           }
         },
@@ -43,4 +47,17 @@ class _EditNoteViewState extends State<EditNoteView> {
       ),
     );
   }
+
+  _editNote(Note note) {
+    if (title.isEmpty) {
+      note.content = content;
+    } else if (content.isEmpty) {
+      note.title = title;
+    }else{
+      note.content = content;
+      note.title = title;
+    }
+    note.save();
+  }
+
 }
