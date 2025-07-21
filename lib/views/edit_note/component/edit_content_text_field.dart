@@ -19,10 +19,11 @@ class EditContentTextField extends StatelessWidget {
     onChanged: onChange,
     maxLines: 1000,
     validator: (value) {
-      if (value == null || value.isEmpty)
+      if (value == null || value.isEmpty) {
         return 'Enter content';
-      else
+      } else {
         return null;
+      }
     },
   );
 }

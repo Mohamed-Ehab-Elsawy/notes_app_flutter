@@ -21,10 +21,11 @@ class NoteTitleTextField extends StatelessWidget {
     keyboardType: TextInputType.text,
     onChanged: onChange,
     validator: (value) {
-      if (value == null || value.isEmpty)
+      if (value == null || value.isEmpty) {
         return 'Enter title please';
-      else
+      } else {
         return null;
+      }
     },
   );
 }

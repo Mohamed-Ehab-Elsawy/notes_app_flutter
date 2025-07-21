@@ -1,23 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/data/models/note.dart';
 
-import '../../../data/models/note.dart';
 import 'note_card.dart';
 
 class NotesList extends StatelessWidget {
-  const NotesList({super.key});
+  final List<Note> notes;
+
+  const NotesList({super.key, required this.notes});
 
   @override
-  Widget build(BuildContext context) {
-    final note = Note(
-      id: '1',
-      title: 'Flutter Notes App',
-      content:
-          'Build a Flutter Notes App with us right now, Build a Flutter Notes App with us right now',
-      createdAt: DateTime.now(),
-    );
-    return ListView.builder(
-      itemCount: 10,
-      itemBuilder: (context, index) => NoteCard(note: note),
-    );
-  }
+  Widget build(BuildContext context) => ListView.builder(
+    itemCount: notes.length,
+    itemBuilder: (context, index) => NoteCard(note: notes[index]),
+  );
 }

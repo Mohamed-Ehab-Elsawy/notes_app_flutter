@@ -21,10 +21,11 @@ class NoteContentTextField extends StatelessWidget {
     keyboardType: TextInputType.multiline,
     onChanged: onChange,
     validator: (value) {
-      if (value == null || value.isEmpty)
+      if (value == null || value.isEmpty) {
         return 'Enter content';
-      else
+      } else {
         return null;
+      }
     },
   );
 }

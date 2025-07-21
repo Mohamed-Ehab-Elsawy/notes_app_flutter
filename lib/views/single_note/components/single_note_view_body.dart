@@ -12,10 +12,15 @@ class SingleNoteViewBody extends StatelessWidget {
     padding: const EdgeInsets.all(10),
     child: Column(
       mainAxisSize: MainAxisSize.max,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          note.createdAt.toString(),
-          style: TextStyle(fontSize: 14, color: Colors.grey),
+        SizedBox(
+          width: double.infinity,
+          child: Text(
+            note.createdAt,
+            style: TextStyle(fontSize: 14, color: Colors.grey),
+            textAlign: TextAlign.center,
+          ),
         ),
         SizedBox(height: 8),
         Expanded(

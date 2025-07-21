@@ -28,6 +28,7 @@ class EditNoteViewBody extends StatelessWidget {
             onChange: onContentChange,
           ),
         ),
+        SizedBox(height: 30),
       ],
     ),
   );

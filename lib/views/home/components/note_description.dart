@@ -25,7 +25,7 @@ class NoteDescription extends StatelessWidget {
       SizedBox(height: 8),
       Text(
         note.createdAt.toString(),
-        style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+        style: TextStyle(fontSize: 14, fontWeight: FontWeight.w300,color: Colors.grey),
       ),
     ],
   );
